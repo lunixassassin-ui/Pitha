@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Assassin Cyber Collective</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f8faff 0%, #eef3fe 100%);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .main-container {
+      max-width: 1280px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 3rem;
+      box-shadow: 0 30px 60px -20px rgba(0, 20, 50, 0.25), 
+                  inset 0 1px 2px rgba(255, 255, 255, 0.9);
+      padding: 2.5rem 2.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0f2b5c, #1e4a8c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    h1 i {
+      background: linear-gradient(135deg, #1e4a8c, #3b6dc9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2.8rem;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      color: #3c4f6e;
+      margin-bottom: 2rem;
+      border-left: 6px solid #3b6dc9;
+      padding-left: 1.4rem;
+      font-weight: 400;
+      background: linear-gradient(90deg, #f0f5ff, transparent);
+      border-radius: 0 100px 100px 0;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: #0f2b5c;
+      margin: 2.2rem 0 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    h2 i {
+      color: #2f6fcf;
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1e3a6b;
+      margin: 1.6rem 0 0.8rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h3 i {
+      color: #4a7ad4;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #2b3d5e;
+      font-weight: 400;
+      font-size: 1.05rem;
+    }
+
+    .text-block {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      margin: 1.8rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 20px -8px rgba(0, 25, 60, 0.08);
+      transition: all 0.2s ease;
+    }
+
+    .text-block:hover {
+      background: #ffffffc9;
+      border-color: #c7d9ff;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.8rem 0 1rem;
+    }
+
+    .link-card {
+      background: #ffffffd9;
+      border-radius: 2rem;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: #1e3a6b;
+      font-weight: 500;
+      border: 1px solid #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 35, 70, 0.04);
+      transition: all 0.25s ease;
+      backdrop-filter: blur(4px);
+      font-size: 1.05rem;
+    }
+
+    .link-card i {
+      font-size: 1.3rem;
+      color: #2f6fcf;
+      width: 1.8rem;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .link-card:hover {
+      background: #ffffff;
+      border-color: #aac4ff;
+      box-shadow: 0 15px 25px -10px #2f6fcf40;
+      transform: translateY(-3px);
+    }
+
+    .link-card:hover i {
+      transform: scale(1.15);
+      color: #0b3a7a;
+    }
+
+    .telegram-proof {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(120deg, #e2ebff, #d4e2ff);
+      border-radius: 100px;
+      padding: 0.9rem 2rem 0.9rem 1.6rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin: 2rem 0 1rem 0;
+      border: 1px solid #ffffff;
+      box-shadow: 0 10px 18px -10px #2a4f9b60;
+      text-decoration: none;
+      color: #0a2c5e;
+      transition: all 0.2s ease;
+      width: fit-content;
+      gap: 0.8rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .telegram-proof i {
+      color: #1e78d6;
+      font-size: 1.6rem;
+    }
+
+    .telegram-proof:hover {
+      background: #ffffff;
+      box-shadow: 0 20px 30px -12px #1d4e9e80;
+      transform: scale(1.01);
+    }
+
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #adc6f0, transparent);
+      margin: 2rem 0;
+      border-radius: 4px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e5efff;
+      border-radius: 50px;
+      padding: 0.25rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1d4e9e;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      margin-right: 0.5rem;
+    }
+
+    /* Telegram sender box */
+    .telegram-box {
+      background: #ffffffdd;
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0 1.2rem;
+      border: 1px solid #ffffff;
+      box-shadow: 0 15px 30px -15px #0a2c5e30;
+      backdrop-filter: blur(8px);
+    }
+
+    .telegram-box h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .input-group input {
+      flex: 1 1 260px;
+      padding: 0.9rem 1.4rem;
+      border-radius: 100px;
+      border: 1px solid #c8d9f5;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      background: #ffffff;
+      transition: all 0.2s ease;
+      color: #1e293b;
+    }
+
+    .input-group input:focus {
+      border-color: #2f6fcf;
+      box-shadow: 0 0 0 4px #2f6fcf20;
+    }
+
+    .input-group button {
+      flex: 0 0 auto;
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      border: none;
+      background: linear-gradient(135deg, #1e4a8c, #2f6fcf);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 18px -8px #1e4a8c90;
+    }
+
+    .input-group button:hover {
+      background: linear-gradient(135deg, #143a6e, #2560b5);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 22px -10px #1e4a8c;
+    }
+
+    .input-group button:active {
+      transform: translateY(0);
+    }
+
+    .input-group button i {
+      font-size: 1.1rem;
+    }
+
+    .telegram-status {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      display: inline-block;
+      background: #eef4ff;
+      color: #1e3a6b;
+    }
+
+    /* compact announcement cards */
+    .announcement-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .announcement-card {
+      flex: 1 1 240px;
+      background: #f9fcffcc;
+      border-radius: 1.6rem;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .announcement-card:hover {
+      background: #ffffff;
+      border-color: #c7d9ff;
+    }
+
+    .announcement-card h3 {
+      font-size: 1.15rem;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .announcement-card p {
+      font-size: 0.92rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.45;
+      color: #374d6e;
+    }
+
+    .announcement-card a {
+      font-size: 0.88rem;
+      color: #2f6fcf;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 1rem 0.8rem; }
+      .main-container { padding: 1.8rem 1.2rem; border-radius: 2rem; }
+      h1 { font-size: 2.1rem; }
+      h1 i { font-size: 2.1rem; }
+      .subhead { font-size: 1rem; padding-left: 1rem; }
+      .text-block { padding: 1.2rem 1.2rem; }
+      .telegram-proof { font-size: 1rem; padding: 0.7rem 1.4rem; }
+      .telegram-box { padding: 1.2rem 1.2rem; }
+      .input-group button { width: 100%; justify-content: center; }
+    }
+
+    @media (max-width: 420px) {
+      .link-card { padding: 0.9rem 1.2rem; font-size: 0.95rem; }
+      h2 { font-size: 1.5rem; }
+    }
+
+    ::selection {
+      background: #b7d0ff;
+      color: #0a1e3c;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .fa-arrow-right {
+      margin-left: auto;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    .editable-note {
+      font-size: 0.9rem;
+      color: #4b6589;
+      background: #ffffffaa;
+      border-radius: 40px;
+      padding: 0.2rem 1rem;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+
+    <h1>
+      <i class="fas fa-at"></i>
+      PORN  HUB
+    </h1>
+    <div class="subhead">
+      <i class="fas fa-shield-halved" style="margin-right: 0.6rem; color: #2f6fcf;"></i>
+      NEW VIRAL LINK
+    </div>
+
+    <div class="text-block">
+      <p>
+        <span class="badge"><i class="fas fa-terminal" style="margin-right: 0.2rem;"></i> operational</span>
+        Welcome to the PORN HUB portal.NOW END YOUR NNN CHALLENGE — replace any text, 
+        link, or icon with your own mission data. The design remains stable and professional while you customize.
+      </p>
+      <p>
+        <i class="fas fa-lock" style="color: #2e7d32; margin-right: 0.5rem;"></i>
+        All anchors and interactive elements are ready. Use the link cards below as templates — 
+        edit the <strong>href</strong> attributes to point to your real resources.
+      </p>
+    </div>
+
+    <a href="#" class="telegram-proof" id="telegramProofLink">
+      <i class="fab fa-telegram-plane"></i>
+      YOUR PORN WORKING PROVE
+      <i class="fas fa-arrow-right" style="font-size: 1rem; opacity: 0.7;"></i>
+    </a>
+
+    
+    <div class="pornhub-box" id="pornhubSenderBox">
+      <h3>
+        <i class="fab fa-telegram"></i> 
+        Send message to pornhub
+      </h3>
+      <p style="margin-bottom: 1.2rem; font-size: 0.98rem; color: #2b3d5e;">
+        Type your message below and click <strong>Send</strong>. It will be delivered to the configured Telegram chat.
+      </p>
+      <div class="input-group">
+        <input type="text" id="pornhubMessageInput" placeholder="Write your message here…" autocomplete="off">
+        <button id="pornhubSendButton">
+          <i class="fas fa-paper-plane"></i> Send
+        </button>
+      </div>
+      <div id="pornhubStatusMessage" class="pornhub-status">
+        <i class="fas fa-info-circle"></i> Ready
+      </div>
+    </div>
+
+    <h2>
+      <i class="fas fa-link"></i> 
+      Quick links &amp; resources
+    </h2>
+    <p style="margin-bottom: 0.8rem; font-size: 1rem;">
+      <i class="fas fa-hand-pointer"></i> 
+      Each card is an anchor (<code>&lt;a&gt;</code>) — change the <strong>href</strong> to your URL.
+    </p>
+
+    <div class="link-grid">
+      <a href="#" class="link-card">
+        <i class="fas fa-book-open"></i> pitha
+        <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="#" class="link-card">
+        <i class="fas fa-video"></i> milk
+        <i class="fas fa-arrow-right"></i>
+      </a>
+  
+      
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>
+      <i class="fas fa-newspaper"></i> 
+      Announcements
+    </h2>
+
+    <div class="announcement-row">
+      <div class="announcement-card">
+        <h3><i class="fas fa-bullhorn"></i> Week 12 update</h3>
+        <p>Midterm projects due Friday. Check the rubric — editable text.</p>
+        <a href="#">Read more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="announcement-card">
+        <h3><i class="fas fa-microphone-alt"></i> Guest lecture</h3>
+        <p>Dr. Jhonny Sins ready to play.</p>
+        <a href="#">Join session <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div style="margin-top: 2.5rem; text-align: center; font-size: 0.9rem; color: #6b7d9b;">
+      <i class="fas fa-skull"></i> Powered By -pornhub
+    </div>
+
+  </div>
+
+  <script>
+    (function() {
+      const porn Config = {
+        botToken: 'YOUR_BOT_TOKEN_HERE',
+        chatId: 'YOUR_CHAT_ID_HERE',
+        defaultMessage: 'Page : pornhub messaging probe triggered.'
+      };
+
+      function setStatus(text, type) {
+        const statusEl = document.getElementById('pornhubStatusMessage');
+        if (!statusEl) return;
+        statusEl.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i> ${text}`;
+        statusEl.style.background = type === 'success' ? '#e6f7e6' : type === 'error' ? '#ffe6e6' : '#eef4ff';
+        statusEl.style.color = type === 'success' ? '#1e6b2e' : type === 'error' ? '#b00020' : '#1e3a6b';
+      }
+
+      async function sendpornhubMessage(messageText) {
+        if (!messageText || messageText.trim() === '') {
+          setStatus('Please enter a message first.', 'error');
+          return { ok: false, description: 'Empty message' };
+        }
+
+        if (!pornhubConfig.botToken || pornhubConfig.botToken === 'YOUR_BOT_TOKEN_HERE' ||
+            !pornhubConfig.chatId || pornhubConfig.chatId === 'YOUR_CHAT_ID_HERE') {
+          setStatus('Bot token or chat ID is not configured. Message not sent.', 'error');
+          console.log('Telegram config not set – placeholder mode. Message:', messageText);
+          return { ok: false, description: 'Missing token or chat id' };
+        }
+
+        setStatus('Sending…', 'info');
+        const url = `https://api.telegram.org/bot${telegramConfig.botToken}/sendMessage`;
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: telegramConfig.chatId,
+              text: messageText,
+              parse_mode: 'HTML'
+            })
+          });
+          const data = await response.json();
+          if (data.ok) {
+            setStatus('Message sent successfully!', 'success');
+          } else {
+            setStatus(`Telegram error: ${data.description || 'Unknown error'}`, 'error');
+          }
+          return data;
+        } catch (error) {
+          setStatus(`Request failed: ${error.message}`, 'error');
+          return { ok: false, description: error.message };
+        }
+      }
+
+      const sendButton = document.getElementById('telegramSendButton');
+      const messageInput = document.getElementById('telegramMessageInput');
+
+      if (sendButton && messageInput) {
+        const handleSend = () => {
+          const msg = messageInput.value;
+          sendTelegramMessage(msg).then(result => {
+            if (result && result.ok) {
+              messageInput.value = '';
+            }
+          });
+        };
+
+        sendButton.addEventListener('click', handleSend);
+        messageInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            handleSend();
+          }
+        });
+      }
+
+      const proofLink = document.getElementById('telegramProofLink');
+      if (proofLink) {
+        proofLink.addEventListener('click', function(event) {
+          if (this.getAttribute('href') === '#') {
+            event.preventDefault();
+          }
+          sendTelegramMessage('🔔 User clicked the "YOUR TELEGRAM WORKING PROVE" link.')
+            .then(result => {
+              if (result.ok) {
+                console.log('Telegram message sent successfully.');
+              } else {
+                console.log('Telegram (mock): would send message – config missing or error.');
+              }
+            });
+        });
+      }
+
+      const linkCards = document.querySelectorAll('.link-card');
+      linkCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+          if (this.getAttribute('href') === '#') {
+            console.log('Link card clicked — replace "#" with your actual URL.');
+          }
+        });
+      });
+
+      console.log('Lab Ready');
+    })();
+  </script>
+</body>
+</html>
